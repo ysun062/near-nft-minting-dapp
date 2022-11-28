@@ -1,3 +1,5 @@
+import { tokenToString } from "typescript";
+
 export class Contract{
   wallet;
 
@@ -5,11 +7,17 @@ export class Contract{
     this.wallet = wallet;
   }
 
-  async getGreeting(){
-    return await this.wallet.viewMethod({method: 'get_greeting'});
+  async get_total_tokens() {
+    return await this.wallet.viewMethod({method: "get_total_tokens"});
   }
-  
-  async setGreeting(greeting){
-    return await this.wallet.callMethod({method: 'set_greeting', args:{message: greeting}});
+
+  async get_all_tokens() {
+    return await this.wallet.viewMethod({method: "get_all_tokens"});
+  }
+
+  async mint_nft(token_name, description, media_uri, level) {
+    return await this.wallet.callMethod({ method: "mint_nft", 
+      args: {token_owner_id: this.wallet.accountId,
+      name: token_name, description, media_uri, level} });
   }
 }
