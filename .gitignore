@@ -9,6 +9,9 @@ node_modules
 /out
 /dist
 
+# frontend
+.parcel-cache
+
 # keys
 /templates/react/neardev
 
@@ -29,3 +32,8 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+frontend/dist
+contract/build
+
+frontend/assets/global.css
+
